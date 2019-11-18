@@ -28,8 +28,9 @@ public:
 
 
     friend std::ostream &operator<<(std::ostream&, const myVector&);
-    myVector operator+(const myVector& vector)const ;
 
+    myVector operator+(const myVector& vector)const ;
+    myVector operator-(const myVector& vector)const ;
 
     myVector sigmoid() const;
 };

@@ -28,7 +28,9 @@ public:
 
     myMatrix operator+(myMatrix matrix)const;
     myMatrix operator*(myMatrix matrix)const;
-    myMatrix sigmoid()const ;
+    myVector operator*(myVector vector)const;
+
+    myMatrix sigmoid() const;
 
     friend std::ostream &operator<<(std::ostream&, const myMatrix&);
 };

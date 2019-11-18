@@ -69,12 +69,23 @@ myMatrix myMatrix::operator*(const myMatrix matrix) const {
     return result;
 }
 
-myMatrix myMatrix::sigmoid() const {
-        myMatrix matrix(rowVectors.size(),rowVectors[0].size());
-
-        for(int i=0;i<matrix.rowVectors.size();i++){
-           matrix[i] = (*this)[i].sigmoid();
+myVector myMatrix::operator*(const myVector vector) const {
+    myVector result(static_cast<int>(this->rowVectors.size()));
+    for (int i = 0; i < this->rowVectors.size(); i++) {
+        for(int j=0;j<vector.size();j++){
+            result[i]+=vector[j]*(*this)[i][j];
         }
+    }
+    return result;
+}
+
+
+myMatrix myMatrix::sigmoid() const {
+    myMatrix matrix(rowVectors.size(), rowVectors[0].size());
+
+    for (int i = 0; i < matrix.rowVectors.size(); i++) {
+        matrix[i] = (*this)[i].sigmoid();
+    }
 
     return matrix;
 }

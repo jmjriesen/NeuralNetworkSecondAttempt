@@ -59,6 +59,17 @@ myVector myVector::operator+(const myVector &vector) const {
 
     return myVector(result);
 }
+myVector myVector::operator-(const myVector &vector) const {
+    std::vector<double> result;
+    if(size()!= vector.size()){
+        throw std::range_error("the vectors are of different size");
+    }
+    for(int i=0;i<vector.size();i++){
+        result.emplace_back(data[i]-vector[i]);
+    }
+
+    return myVector(result);
+}
 
 myVector myVector::sigmoid() const {
     myVector vector(static_cast<int>(this->size()));

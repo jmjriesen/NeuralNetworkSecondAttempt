@@ -6,7 +6,7 @@ int main() {
     myMatrix matrix0(2, 3);
     matrix0[0][0] = 0;
     matrix0[0][1] = 100;
-    matrix0[0][2] = -20;
+    matrix0[0][2] = -100;
     matrix0[1][0] = 0;
     matrix0[1][1] = 0;
     matrix0[1][2] = 0;

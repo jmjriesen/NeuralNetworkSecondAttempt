@@ -7,9 +7,13 @@
 
 
 #include <vector>
+#include <random>
+
 class myVector {
 private:
     std::vector<double> data;
+    static std::uniform_real_distribution<double> uniform_real_distribution;
+    static std::default_random_engine engine;
 
 public:
     explicit myVector(int length);
@@ -21,6 +25,7 @@ public:
     double operator*(myVector& rhs) const;
 
     unsigned long size()const { return data.size();}
+    void randomize();
 
     double &operator[](int i){ return data[i];}
 

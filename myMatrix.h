@@ -22,6 +22,7 @@ public:
     unsigned long getNumRow()const{ return rowVectors.size();}
     explicit myMatrix(std::vector<myVector>);
     myMatrix(unsigned long  width,unsigned long  hight);
+    void randomize();
 
     myVector& operator[](int i){ return rowVectors[i];}
     myVector operator[](int i)const { return rowVectors[i];}

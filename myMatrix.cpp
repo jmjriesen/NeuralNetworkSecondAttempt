@@ -70,10 +70,13 @@ myMatrix myMatrix::operator*(const myMatrix matrix) const {
 }
 
 myVector myMatrix::operator*(const myVector vector) const {
+    if (this->getNumCol() != vector.size()) {
+        throw std::range_error("the vectors and matrix do not match dememntions");
+    }
     myVector result(static_cast<int>(this->rowVectors.size()));
     for (int i = 0; i < this->rowVectors.size(); i++) {
-        for(int j=0;j<vector.size();j++){
-            result[i]+=vector[j]*(*this)[i][j];
+        for (int j = 0; j < vector.size(); j++) {
+            result[i] += vector[j] * (*this)[i][j];
         }
     }
     return result;
@@ -88,6 +91,12 @@ myMatrix myMatrix::sigmoid() const {
     }
 
     return matrix;
+}
+
+void myMatrix::randomize() {
+    for (auto &row:rowVectors) {
+        row.randomize();
+    }
 }
 
 

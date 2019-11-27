@@ -8,20 +8,21 @@
 #include <vector>
 #include <iomanip>
 #include <cmath>
+#include <random>
 
 myVector::myVector(int length) {
  for(int i=0;i<length;i++){
      data.push_back(0.0);
  }
 }
-
+std::uniform_real_distribution<double> myVector::uniform_real_distribution{-100,100};
+std::default_random_engine myVector::engine;
 //myVector::myVector(myVector &vector) {
 //data = vector.data;
 
 //}
 
 myVector::myVector(std::vector<double>  vector) :data(std::move(vector)) {
-
 }
 
 double myVector::operator*(myVector & other) const{
@@ -77,4 +78,10 @@ myVector myVector::sigmoid() const {
         vector[i] = 1.0/(1.0+exp(-(*this)[i]));
     }
     return vector;
+}
+
+void myVector::randomize() {
+    std::generate(std::begin(data), std::end(data), [this](){
+        return uniform_real_distribution(engine);
+    });
 }

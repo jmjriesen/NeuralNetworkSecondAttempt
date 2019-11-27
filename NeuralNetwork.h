@@ -10,12 +10,14 @@
 
 class NeuralNetwork {
 public:
-    NeuralNetwork(int inputSize, int numberOfHiddenLayers,int hiddenLayerSize,int outputSize);
+    NeuralNetwork(int inputSize, int numberOfHiddenLayers, int hiddenLayerSize, int outputSize);
 
     std::vector<myMatrix> waits;
     std::vector<myVector> baises;
-myVector calculate(myVector vector) const;
 
+    myVector calculate(myVector vector) const;
+
+    void randomize();
 };
 
 

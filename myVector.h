@@ -14,6 +14,7 @@ private:
     std::vector<double> data;
     static std::uniform_real_distribution<double> uniform_real_distribution;
     static std::default_random_engine engine;
+    static std::normal_distribution<double> mutationDistribultion;
 
 public:
     explicit myVector(int length);
@@ -26,6 +27,7 @@ public:
 
     unsigned long size()const { return data.size();}
     void randomize();
+    void mutate();
 
     double &operator[](int i){ return data[i];}
 
@@ -38,6 +40,7 @@ public:
     myVector operator-(const myVector& vector)const ;
 
     myVector sigmoid() const;
+
 };
 
 

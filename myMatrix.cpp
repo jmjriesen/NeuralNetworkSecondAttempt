@@ -99,5 +99,12 @@ void myMatrix::randomize() {
     }
 }
 
+void myMatrix::mutate() {
+    for(auto& row:rowVectors){
+        row.mutate();
+    }
+
+}
+
 
 

@@ -19,7 +19,7 @@ NeuralNetwork::NeuralNetwork(int inputSize, int numberOfHiddenLayers, int hidden
     //waits and biases for the the last layer.
     waits.emplace_back(outputSize, hiddenLayerSize);
     baises.emplace_back(outputSize);
-
+    randomize();
 }
 
 myVector NeuralNetwork::calculate(myVector vector) const {
@@ -37,4 +37,13 @@ void NeuralNetwork::randomize() {
         layer.randomize();
     }
 
+}
+
+void NeuralNetwork::mutate() {
+    for (auto &layer:waits) {
+        layer.mutate();
+    }
+    for (auto &layer:baises) {
+        layer.mutate();
+    }
 }

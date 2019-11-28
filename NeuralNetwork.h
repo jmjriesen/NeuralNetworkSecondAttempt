@@ -18,6 +18,7 @@ public:
     myVector calculate(myVector vector) const;
 
     void randomize();
+    void mutate();
 };
 
 

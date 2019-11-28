@@ -1,0 +1,9 @@
+//
+// Created by Jacob Riesen on 11/27/19.
+//
+
+#ifndef NEURALNETWORKSECONDATTEMPT_EXPERIMENT_H
+#define NEURALNETWORKSECONDATTEMPT_EXPERIMENT_H
+void experiment1();
+void experiment2();
+#endif //NEURALNETWORKSECONDATTEMPT_EXPERIMENT_H

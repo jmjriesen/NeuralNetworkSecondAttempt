@@ -3,4 +3,4 @@ project(NeuralNetworkSecondAttempt)
 
 set(CMAKE_CXX_STANDARD 17)
 set(SOURCE_FILES main.cpp)
-add_executable(NeuralNetworkSecondAttempt main.cpp myVector.cpp myVector.h myMatrix.cpp myMatrix.h NeuralNetwork.cpp NeuralNetwork.h)
+add_executable(NeuralNetworkSecondAttempt main.cpp myVector.cpp myVector.h myMatrix.cpp myMatrix.h NeuralNetwork.cpp NeuralNetwork.h Experiment.cpp Experiment.h)

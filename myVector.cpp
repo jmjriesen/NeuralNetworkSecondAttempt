@@ -16,7 +16,7 @@ myVector::myVector(int length) {
     }
 }
 
-std::normal_distribution<> myVector::mutationDistribultion{0, 50};
+std::normal_distribution<> myVector::mutationDistribultion{0, 25};
 std::uniform_real_distribution<double> myVector::uniform_real_distribution{-100, 100};
 std::default_random_engine myVector::engine;
 
@@ -28,7 +28,7 @@ double myVector::operator*(myVector &other) const {
         throw std::range_error("the vectors are of different size");
     }
     double result = 0;
-    for (int i = 0; i < data.size(); i++) {
+    for (int i = 0; i <(int) data.size(); i++) {
         result += data[i] * other[i];
 
     }
@@ -52,7 +52,7 @@ myVector myVector::operator+(const myVector &vector) const {
     if (size() != vector.size()) {
         throw std::range_error("the vectors are of different size");
     }
-    for (int i = 0; i < vector.size(); i++) {
+    for (int i = 0; i <(int) vector.size(); i++) {
         result.emplace_back(data[i] + vector[i]);
     }
 
@@ -64,7 +64,7 @@ myVector myVector::operator-(const myVector &vector) const {
     if (size() != vector.size()) {
         throw std::range_error("the vectors are of different size");
     }
-    for (int i = 0; i < vector.size(); i++) {
+    for (int i = 0; i <(int) vector.size(); i++) {
         result.emplace_back(data[i] - vector[i]);
     }
 
@@ -73,14 +73,14 @@ myVector myVector::operator-(const myVector &vector) const {
 
 myVector myVector::sigmoid() const {
     myVector vector(static_cast<int>(this->size()));
-    for (int i = 0; i < this->size(); i++) {
+    for (int i = 0; i <(int) this->size(); i++) {
         vector[i] = 1.0 / (1.0 + exp(-(*this)[i]));
     }
     return vector;
 }
 
 void myVector::randomize() {
-    std::generate(std::begin(data), std::end(data), [this]() {
+    std::generate(std::begin(data), std::end(data), []() {
         return uniform_real_distribution(engine);
     });
 }

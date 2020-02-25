@@ -23,7 +23,7 @@ NeuralNetwork::NeuralNetwork(int inputSize, int numberOfHiddenLayers, int hidden
 }
 
 myVector NeuralNetwork::calculate(myVector vector) const {
-    for (int i = 0; i < waits.size(); i++) {
+  for (int i = 0; i < (int)waits.size(); i++) {
         vector = (waits[i] * vector + baises[i]).sigmoid();
     }
     return vector;

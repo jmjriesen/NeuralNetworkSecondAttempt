@@ -10,31 +10,30 @@
 #include "myVector.h"
 
 class myMatrix {
-
-
-
-    std::vector<myVector> rowVectors;
 private:
+  std::vector<myVector> rowVectors;
 
 public:
-    myVector getCol(int i) const;
-    unsigned long getNumCol()const;
-    unsigned long getNumRow()const{ return rowVectors.size();}
-    explicit myMatrix(std::vector<myVector>);
-    myMatrix(unsigned long  width,unsigned long  hight);
-    void randomize();
-    void mutate();
+  explicit myMatrix(std::vector<myVector>);
+  explicit myMatrix(myVector);
+  myVector getCol(int i) const;
+  unsigned long getNumCol()const;
+  unsigned long getNumRow()const{ return rowVectors.size();}
+  myMatrix(unsigned long  width,unsigned long  hight);
+  void randomize();
+  void mutate();
 
-    myVector& operator[](int i){ return rowVectors[i];}
-    myVector operator[](int i)const { return rowVectors[i];}
+  myVector& operator[](int i){ return rowVectors[i];}
+  myVector operator[](int i)const { return rowVectors[i];}
 
-    myMatrix operator+(myMatrix matrix)const;
-    myMatrix operator*(myMatrix matrix)const;
-    myVector operator*(myVector vector)const;
+  myMatrix operator+(myMatrix matrix)const;
+  myMatrix operator*(myMatrix matrix)const;
+  myVector operator*(myVector vector)const;
+  myMatrix transpose() const;
 
-    myMatrix sigmoid() const;
+  myMatrix sigmoid() const;
 
-    friend std::ostream &operator<<(std::ostream&, const myMatrix&);
+  friend std::ostream &operator<<(std::ostream&, const myMatrix&);
 };
 
 
